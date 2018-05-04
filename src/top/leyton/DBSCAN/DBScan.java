@@ -9,7 +9,7 @@ public class DBScan {
     private double radius;
     private int minPts;
 
-    public DBScan(double radius,int minPts) {
+    public DBScan(double radius, int minPts) {
         this.radius = radius;
         this.minPts = minPts;
     }
@@ -18,7 +18,7 @@ public class DBScan {
         int size = points.size();
         int idx = 0;
         int cluster = 1;
-        while (idx<size) {
+        while (idx < size) {
             Point p = points.get(idx++);
             //choose an unvisited point
             if (!p.getVisit()) {
@@ -55,12 +55,13 @@ public class DBScan {
         }
     }
 
-    private ArrayList<Point> getAdjacentPoints(Point centerPoint,ArrayList<Point> points) {
+    private ArrayList<Point> getAdjacentPoints(Point centerPoint, ArrayList<Point> points) {
         ArrayList<Point> adjacentPoints = new ArrayList<Point>();
-        for (Point p:points) {
+        for (Point p : points) {
             //include centerPoint itself
-            double distance = centerPoint.getDistance(p);
-            if (distance<=radius) {
+//            double distance = centerPoint.getDistance(p);
+            double distance = centerPoint.getTimeInterval(p);
+            if (distance <= radius) {
                 adjacentPoints.add(p);
             }
         }

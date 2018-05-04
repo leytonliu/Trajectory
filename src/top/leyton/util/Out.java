@@ -12,9 +12,10 @@ public class Out {
 
 //        String sql="select * from checkin WHERE user_id='2'AND date='2010-09-10' ORDER BY id DESC ";
         String sql="select * from checkin WHERE user_id='2'";
+        String sql2="SELECT * FROM `checkin` WHERE user_id = '2' AND time>'03:30:00'AND time <'05:47:00' ORDER BY id DESC";
         //String sql="select * from checkin HAVING COUNT(user_id)>100";
         CheckinUtil checkinUtil = new CheckinUtil();
-        List<CheckinTable> checkinTableList = checkinUtil.QueryCheckin(sql);
+        List<CheckinTable> checkinTableList = checkinUtil.QueryCheckin(sql2);
         Iterator<CheckinTable> iterator = checkinTableList.iterator();
         while (iterator.hasNext()) {
             CheckinTable checkinTable = iterator.next();

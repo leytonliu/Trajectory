@@ -12,12 +12,15 @@ public class Client {
         //ArrayList<Point> points = Data.generateSinData(200);
         //DBScan dbScan = new DBScan(0.6,4);
         ArrayList<Point> points = Data.generateSpecialData();
-        DBScan dbScan = new DBScan(0.5,3);
+        DBScan dbScan = new DBScan(10,50);
+//        DBScan dbScan = new DBScan(3,5);
         dbScan.process(points);
         for (Point p:points) {
+            
             System.out.println(p);
         }
         Data.writeData(points,"data.txt");
+
     }
 
 }
